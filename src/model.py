@@ -171,4 +171,5 @@ def model(hparams, X, past=None, scope='model', reuse=False):
         logits = tf.matmul(h_flat, wte, transpose_b=True)
         logits = tf.reshape(logits, [batch, sequence, hparams.n_vocab])
         results['logits'] = logits
+        results["wte"] = wte
         return results
